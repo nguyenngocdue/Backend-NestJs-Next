@@ -35,10 +35,9 @@ model orders {
 }
 
 model users {
-  user_id    Int       @id @default(autoincrement())
-  username   String    @db.VarChar(50)
-  password   String    @db.VarChar(255)
-  email      String?   @db.VarChar(255)
-  role       String?   @db.VarChar(50)
-  created_at DateTime? @default(now()) @db.Timestamp(6)
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String
+  email     String   @unique
+  createdAt DateTime @default(now())
 }
